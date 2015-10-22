@@ -2,6 +2,7 @@
 docs/
 examples/
 test/
+lib/
 .DS_Store
 node_modules
 .idea

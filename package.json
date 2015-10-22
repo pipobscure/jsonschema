@@ -8,10 +8,11 @@
   "contributors": [
     { "name" : "Austin Wright" }
   ],
-  "main": "./lib",
+  "main": "./commonjs",
   "devDependencies": {
     "mocha": "~1.8.2",
-    "chai": "~1.5.0"
+    "chai": "~1.5.0",
+    "traceur": "~0.0.91"
   },
   "optionalDependencies": {},
   "engines": {
@@ -30,6 +31,9 @@
   },
   "description": "A fast and easy to use JSON Schema validator",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec"
+    "test": "./node_modules/.bin/mocha -R spec",
+    "build": "rm -rf commonjs && mkdir commonjs && traceur --source-maps inline --modules commonjs --dir lib commonjs",
+    "prepublish": "npm run build",
+    "pretest": "npm run build"
   }
 }
